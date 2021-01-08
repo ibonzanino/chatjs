@@ -4,9 +4,10 @@ var io = require('socket.io')(app); // Socket.IO
 var usuarios = []; // Lista de usuários
 var ultimas_mensagens = []; // Lista com ultimas mensagens enviadas no chat
 
-app.listen(3000);
-
-console.log("Aplicação está em execução...");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
 
 // Função principal de resposta as requisições do servidor
 function resposta (req, res) {
